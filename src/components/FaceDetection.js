@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from 'react'
 import * as faceapi from 'face-api.js'
 import {api} from '../utils/api'
 
-
 	const FaceDetection = ({ data, available }) => {
 	const videoRef = useRef()
 	const canvasRef = useRef()
@@ -105,7 +104,24 @@ import {api} from '../utils/api'
 									setPresent(students)
 									setPerson(result.toString())
 									showDetections(detection, result.toString())
+
+									async function submitAttendance() {
+									 const response = await fetch('/api/submit',{
+										method:'POST',
+										headers:{
+											'Accept':'application/json',
+											'Content-Type':'application/json'
+										},
+										body: JSON.stringify({ labell: result.toString() })
+									}) 
+									const content = await response.json()
+									console.log(content);
+									alert("Suceess: Attendance Marked!");
+								}
+								submitAttendance();
 									// console.log('Present----------', JSON.stringify(Present))
+
+
 								}
 
 								const drawBox = new faceapi.draw.DrawBox(resizedDetections.detection.box, options)
@@ -140,7 +156,7 @@ import {api} from '../utils/api'
 			labels.map(async label => {
 				const image = label.pic;
 				const descriptions = []
-				for (let i = 1; i < 2; i++) {
+				for (let i = 0; i < labels.length; i++) {
 					const img = await faceapi.fetchImage(image);
 					const detections = await faceapi
 						.detectSingleFace(img, new faceapi.TinyFaceDetectorOptions())
