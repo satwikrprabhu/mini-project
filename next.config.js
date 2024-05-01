@@ -17,6 +17,29 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+		domains: ["res.cloudinary.com"],
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "lh3.googleusercontent.com",
+				port: "",
+				pathname: "/**",
+			},
+      {
+        protocol: 'http',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/**',
+      },
+		],
+	},
 };
 
 export default config;

@@ -134,12 +134,14 @@ import {api} from '../utils/api'
 	}
 
 	function loadLabeledImages() {
-		const labels = ["Satwik Prabhudfdf"]
+		const labels = getImageLabel.data
+		// const labels = ["Satwik Prabhudfdf"]
 		return Promise.all(
 			labels.map(async label => {
+				const image = label.pic;
 				const descriptions = []
 				for (let i = 1; i < 2; i++) {
-					const img = await faceapi.fetchImage(`https://res.cloudinary.com/dfhg1joox/image/upload/v1713897518/${i}.jpg`)
+					const img = await faceapi.fetchImage(image);
 					const detections = await faceapi
 						.detectSingleFace(img, new faceapi.TinyFaceDetectorOptions())
 						.withFaceLandmarks(useTiny)
@@ -149,7 +151,7 @@ import {api} from '../utils/api'
 					// console.log(label + i + JSON.stringify(detections.descriptor))
 					descriptions.push(detections.descriptor)
 				}
-				return new faceapi.LabeledFaceDescriptors(label, descriptions)
+				return new faceapi.LabeledFaceDescriptors(label.labels, descriptions)
 			})
 		)
 	}

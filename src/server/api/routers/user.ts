@@ -11,7 +11,10 @@ export const userRouter = createTRPCRouter({
   createProfile: protectedProcedure
     .input(z.object({ label: z.string(), pic:z.string() }))
     .mutation(async ({ ctx, input }) => {
-    const data = await ctx.db.user.create({
+    const data = await ctx.db.user.update({
+        where:{
+            id:ctx.session.user.id
+        },
         data: {
             labels: input.label,
             pic: input.pic,
@@ -26,7 +29,7 @@ export const userRouter = createTRPCRouter({
         const data = await ctx.db.user.findMany(
             {
                 select:{
-                    name:true,
+                    labels:true,
                     pic:true
                 }
             }

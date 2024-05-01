@@ -1,9 +1,12 @@
 import React from 'react'
+import { EditProfile } from '~/components/EditProfile'
 
-const profile = () => {
+const Profile = () => {
   return (
-    <div>profile</div>
+    <div>
+      <EditProfile />
+      </div>
   )
 }
 
-export default profile
+export default Profile
