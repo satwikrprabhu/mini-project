@@ -213,14 +213,14 @@ import {api} from '../utils/api'
 	}
 
 	return (
-		<section className='flex flex-col justify-center items-center relative'>
+		<section className='flex flex-col justify-center items-center relative h-44'>
     <div className="flex justify-center relative">
-        <video autoPlay muted ref={videoRef} onPlay={detect} width={700} className='rounded-xl z-10' style={{ position: 'relative' }} />
-        <canvas ref={canvasRef} className='absolute top-0 left-0 w-full h-full z-20' style={{ width: '100%', height: '100%' }}/>
+        <video autoPlay muted ref={videoRef} onPlay={detect} width={600} className='rounded-xl z-10' style={{ position: 'relative' }} />
+        <canvas ref={canvasRef} className='absolute top-0 left-0 w-full h-44 z-20' style={{ width: '100%', height: '100%' }}/>
     </div>
-    <div className="flex justify-center items-center mt-4">
-        <h2 className='font-bold text-xl'>Students Present</h2>
-        <div>{person}</div>
+    <div className="flex justify-center items-center mt-8">
+        {/* <h2 className='font-bold text-xl text-white'>Students Present</h2> */}
+        <div className='text-white font-semibold text-lg'>{person} is Present</div>
     </div>
 </section>
 
