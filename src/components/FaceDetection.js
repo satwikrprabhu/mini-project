@@ -220,7 +220,7 @@ import {api} from '../utils/api'
     </div>
     <div className="flex justify-center items-center mt-8">
         {/* <h2 className='font-bold text-xl text-white'>Students Present</h2> */}
-        <div className='text-white font-semibold text-lg'>{person} is Present</div>
+        <div className='text-white font-semibold text-lg'>{person?`${person} is present`:""}</div>
     </div>
 </section>
 
