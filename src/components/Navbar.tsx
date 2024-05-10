@@ -15,7 +15,7 @@ const {data:sessionData} = useSession();
             <div className="hidden lg:flex flex-row gap-6">
           <ul className="flex flex-row gap-12 text-lg font-semibold text-white" >
             <Link href='/'>Home</Link>
-            <Link href='/team'>Team</Link>
+            {/* <Link href='/team'>Team</Link> */}
             <Link href='/'>About</Link>
           </ul>
           </div>

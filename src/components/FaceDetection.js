@@ -15,7 +15,7 @@ import {api} from '../utils/api'
 	const inputSize = 512
 	const scoreThreshold = 0.5
 	const minConfidence = 0.7
-	const label = 'Name  Satwik Prabhu'
+	// const label = 'Name  Satwik Prabhu'
 	const availableExpressions = ['neutral', 'happy', 'surprised']
 	let objExpressionDescriptors = {}
 	const getImageLabel = api.user.getLabelImages.useQuery();

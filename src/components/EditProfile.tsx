@@ -121,7 +121,7 @@ import { uploadFile } from "~/utils/file"
             name="pic"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Upload Event Poster</FormLabel >
+                <FormLabel>Upload your picture</FormLabel >
                 <FormControl>
                 <Input id="poster" type="file" {...field} onChange={(file)=>{
                   file.target.files &&
